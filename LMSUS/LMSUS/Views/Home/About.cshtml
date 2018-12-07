@@ -1,0 +1,284 @@
+﻿@*@model LMSUS.Models.EditPatient
+<div class="row">
+    <div class="jumbotron" style="margin-top: 5%; padding-bottom: 10px; padding-top: 10px; margin-left: 3%; margin-right: 3%; background-color: #fff; border: #cccccc; border-style: solid; border-width: thin; padding-right: 25px; padding-left: 25px;">
+        <form>
+            <div class="container-fluid " style="padding-top: 10px;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 Style="color: #035bbf;">Patient Information</h3>
+                        <hr />
+                        <div class="row" style="margin-left: 15px;">
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label Style="color: #035bbf;">Patient ACC#</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input asp-for="@model.PreAccNo" Style="width: 75%; height: 30px; height: 30px; height: 30px;" class="form-control" placeholder="" name="acc" ID="acc" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label Style="color: #035bbf;">Last Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input asp-for="@model.PaLastName" Style="width: 100%; height: 30px; height: 30px; height: 30px;" class="form-control" placeholder="" name="lastname" ID="lastname" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label Style="color: #035bbf;">Gender</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <select asp-for="@model.PaSex" Style="width:100%; height: 30px;" class="form-control" placeholder="">
+                                                <option class="form-control">Select...</option>
+                                                <option class="form-control" value="F">Female</option>
+                                                <option class="form-control" value="M">Male</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1" style="padding-left: 0px;">
+                                        <div class="form-group">
+                                            <label Style="color: #035bbf;">Age</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3" style="padding-left: 5px;">
+                                        <input value="patientE.Age" type="text" Style="width: 100%; height: 30px;" class="form-control" placeholder="" name="group" ID="age" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label Style="color: #035bbf;">Address</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <textarea asp-for="@model.PaAddress" Style="width: 100%;max-width:230px; height: 60px; max-height: 60px;" class="form-control" ID="address"></textarea>
+                                    </div>
+                                </div>
+
+                                @*<div class="row" style="margin-top: 10px;">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label Style="color: #035bbf;">Data</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input asp-for="patientE.DateOfBirth" type="date" Style="width: 100%; height: 30px;" class="form-control" placeholder="" name="data" ID="data" />
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 10px;">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label Style="color: #035bbf;">Pri Insurance</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input value="patientE.InsId" type="text" Style="width: 90%; height: 30px;" class="form-control" placeholder="" name="pinsurance" ID="pinsurance" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label Style="color: #035bbf;">Group #</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input value="patientE.GroupNumber" type="text" Style="width: 70%; height: 30px;" class="form-control" placeholder="" name="group" ID="groupno" />
+                                    </div>
+                                </div>
+                                @*<div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label Style="color: #035bbf;">Dns #</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input asp-for="Dns" type="text" Style="width: 80%; height: 30px;" class="form-control" placeholder="" name="dns" ID="dns" />
+                                        </div>
+                                    </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label Style="color: #035bbf;">SSN</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input value="patientE.PaSsn" type="text" Style="width: 90%; height: 30px;" class="form-control" placeholder="" name="ssn" ID="ssn" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label Style="color: #035bbf;">First Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input value="patientE.PaFirstName" type="text" Style="width: 100%; height: 30px;" class="form-control" placeholder="" name="firstname" ID="firstname" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label Style="color: #035bbf;">Date of Birth</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input value="patientE.DateOfBirth" type="date" Style="width: 75%; height: 30px; height: 30px; height: 30px;" class="form-control" ID="dob" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label Style="color: #035bbf;">Phone</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input value="patientE.PaPhone" type="text" Style="width: 85%; height: 30px;" class="form-control" placeholder="" name="pinsurance" ID="phone" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label Style="color: #035bbf;">ZIP Code</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        @*<div class="form-group">
+
+                                            {
+                                                List<SelectListItem> listItems = new List<SelectListItem>();
+                                                listItems.Add(new SelectListItem
+                                                {
+                                                    Text = "One",
+                                                    Value = "1"
+                                                });
+                                                listItems.Add(new SelectListItem
+                                                {
+                                                    Text = "Two",
+                                                    Value = "2",
+                                                });
+                                                listItems.Add(new SelectListItem
+                                                {
+                                                    Text = "Three",
+                                                    Value = "3"
+                                                });
+                                                listItems.Add(new SelectListItem
+                                                {
+                                                    Text = "Four",
+                                                    Value = "4"
+                                                });
+                                                listItems.Add(new SelectListItem
+                                                {
+                                                    Text = "Five",
+                                                    Value = "5"
+                                                });
+                                            }
+                                            Html.DropDownList("DDlDemo", new SelectList(listItems, "Value", "Text"))
+
+                                        </div>
+                                    </div>
+                                </div>
+                                @*<div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label Style="color: #035bbf;">Ref Doctor</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-8">
+                                            <input asp-for="" Style="width: 100%; height: 30px;" class="form-control " placeholder="" name="refdoctor" ID="refdoctor" />
+                                        </div>
+                                    </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label Style="color: #035bbf;">Ins Namer</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input asp-for="@model.InsId" type="text" Style="width: 80%; height: 30px;" class="form-control" placeholder="" name="insname" ID="insname" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label Style="color: #035bbf;">Chart #</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input asp-for="Model.PaChartNo" type="text" Style="width: 80%; height: 30px;" class="form-control" placeholder="" name="chartno" ID="chartno" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr style="background: #000000" />
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-8">
+                                <button class="btn primary" type="button" Style="background: #0372f2; color: white; height: 35px; width: auto;" Text="Register">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="text-align: center">
+                            <h2 style="color: #035bbf;">Select Tests</h2>
+                        </div>
+                        <hr style="background: #000000" />
+                        <div class="row" style="margin-left: 15px;">
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label Style="color: #035bbf;">Test Code</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input Style="width: 75%; height: 30px; height: 30px; height: 30px;" class="form-control" ID="testcode" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label Style="color: #035bbf;" Text="Test Name"></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" Style="width: 100%; height: 30px; height: 30px; height: 30px;" class="form-control" placeholder="" name="testname" ID="testname" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-md-offset-1">
+                                <button class="btn primary" type="button" style="background: #0372f2; color: white; height: 35px; width: auto;" onclick="RegisterPatient">
+                                    Add Test
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="row">
+                                <div class="container">
+                                    <div class="row" style="margin-left: 15px;">
+                                        <div class="col-md-12">
+                                            <asp:Table ID="Table2"></asp:Table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>*@
+

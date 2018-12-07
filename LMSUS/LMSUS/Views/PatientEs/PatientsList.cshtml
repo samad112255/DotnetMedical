@@ -1,0 +1,125 @@
+﻿@model IEnumerable<LMSUS.Models.PatientE>
+
+@{
+    ViewData["Title"] = "PatientsList";
+}
+
+<h2>PatientsList</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PaSsn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaChartNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaFax)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaSex)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZipId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InsId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InsNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GroupNumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaSsn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaChartNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaFax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaSex)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZipId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InsId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InsNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GroupNumber)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PaIdE">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PaIdE">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PaIdE">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

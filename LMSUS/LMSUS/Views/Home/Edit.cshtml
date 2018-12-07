@@ -1,0 +1,881 @@
+﻿@model LMSUS.Models.EditPatient
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<style>
+    .sectionpanel {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        border: 2px solid #157ef3;
+        border-radius: 0px 0px 10px 10px;
+    }
+
+    .tablerowsstyle {
+        background: transparent;
+        border: none;
+    }
+
+    .textstyles {
+        color: #035bbf;
+    }
+
+    .headertextstyles {
+        color: white;
+        padding: 1%;
+    }
+
+    .headerstyles {
+        background-image: linear-gradient(to right, #0372f2, #499ef5, #0372f2);
+        color: white;
+        border-radius: 10px 10px 0px 0px;
+        height: 50px;
+    }
+</style>
+<div class="jumbotron" style="margin-top: 5%; padding-bottom: 10px; padding-top: 10px; margin-left: 3%; margin-right: 3%; background-color: #fff; border: #cccccc; border-style: solid; border-width: thin; padding-right: 25px; padding-left: 25px;">
+
+    <div class="container-fluid " style="padding-top: 10px;">
+
+        <div class="row" style="margin:0px">
+            <div>
+                <h3 Style="color: #035bbf; text-align: center;" ID="heading">Patients Data</h3>
+            </div>
+            <form asp-controller="Home" asp-action="Edit">
+                <input type="hidden" asp-for="PatientE.PaIdE" />
+
+                <input type="hidden" asp-for="PatientE.ZipId" />
+                <input type="hidden" asp-for="PatientE.InsId" />
+                <input type="hidden" asp-for="PatientReqE.PreAccDate" />
+                <input type="hidden" asp-for="PatientReqE.PreAccNo" />
+
+
+                <div class="container-fluid " style="padding-top: 10px;">
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="headerstyles">
+                                <h3 class="headertextstyles">Patient Information</h3>
+                            </div>
+                            <div class="sectionpanel">
+                                <div class="row" style="margin-left: 0px;">
+                                    <div class="col-md-4">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="textstyles">Patient ACC#</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input asp-for="PatientReqE.PreAccNo" type="text" disabled Style="width: 75%; height: 30px; height: 30px; height: 30px;" class="form-control" ID="acc" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="textstyles">Last Name</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input asp-for="PatientE.PaLastName" type="text" Style="width: 100%; height: 30px; height: 30px; height: 30px;" class="form-control" placeholder="" ID="lastname" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="textstyles">Gender</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <select asp-for="PatientE.PaSex" Style="width:100%; height: 30px;" class="form-control" placeholder="">
+                                                        <option class="form-control">Select...</option>
+                                                        <option class="form-control" value="F">Female</option>
+                                                        <option class="form-control" value="M">Male</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-1" style="padding-left: 0px;">
+                                                <div class="form-group">
+                                                    <label class="textstyles">Age</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3" style="padding-left: 5px;">
+                                                <input asp-for="PatientE.Age" type="text" Style="width: 100%; height: 30px;" class="form-control" placeholder="" ID="age" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="textstyles">Address</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <textarea asp-for="PatientE.PaAddress" type="text" Style="width: 100%; max-width:250px; height: 60px; max-height: 60px;" class="form-control" ID="address"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-top: 10px;">
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="textstyles">State</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="form-group">
+                                                    <input asp-for="Zipcode.StFullName" type="text" disabled Style="width: 100%; height: 30px;" class="form-control" ID="pstate" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="textstyles">City</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="form-group">
+                                                    <input asp-for="Zipcode.CityName" type="text" disabled Style="width: 100%; height: 30px;" class="form-control" ID="pcity" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="textstyles">Email</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input asp-for="PatientE.PaEmail" type="text" Style="width: 100%; height: 30px;" class="form-control" placeholder="abc@xyz.com" ID="pinsurance" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="textstyles">Group #</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input asp-for="PatientE.GroupNumber" type="text" Style="width: 70%; height: 30px;" class="form-control" ID="groupno" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-5">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="textstyles">SSN</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input asp-for="PatientE.PaSsn" type="text" Style="width: 100%; height: 30px;" class="form-control" ID="ssn" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="textstyles">First Name</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input asp-for="PatientE.PaFirstName" type="text" Style="width: 100%; height: 30px;" class="form-control" placeholder="" ID="firstname" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="textstyles">Date of Birth</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                @*Html.TextBox("Search", Model.PatientE.DateOfBirth , null, new { @class = " form-control", Style = "width: 100%; height: 30px;" })*@
+                                                <input asp-for="PatientE.DateOfBirth" type="text" Style="width: 100%; height: 30px;" class="datepicker form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="textstyles">Phone</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input asp-for="PatientE.PaPhone" type="text" Style="width: 70%; height: 30px;" class="form-control" placeholder="" ID="phone" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="textstyles">Fax</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input asp-for="PatientE.PaFax" type="text" Style="width: 70%; height: 30px;" class="form-control" placeholder="" ID="phone" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="textstyles">Zip Code</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="form-group">
+                                                    <input asp-for="Zipcode.ZipCode1" id="pzipcode" class="form-control" Style="width:100%; height: 30px;" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="textstyles">Insurance Code</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+
+                                                <select id="inscode" asp-for="PatientE.InsId" asp-items="ViewBag.insurancess" class="example" Style="width:100%; height: 30px;">
+                                                    <option value="">-- Test Code --</option>
+                                                </select>
+                                            </div>
+                                            @*<div class="col-md-1" style="padding-left: 0px;">
+                                                    <div class="form-group">
+                                                        <label class="textstyles">Ins</label>
+                                                    </div>
+                                                </div>*@
+                                            <div class="col-md-5" style="padding-left: 5px;">
+                                                <input asp-for="Insurance.InsName" type="text" disabled Style="width: 100%; height: 30px;" class="form-control" ID="insname" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="textstyles">Chart #</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input asp-for="PatientE.PaChartNo" type="text" Style="width: 80%; height: 30px;" class="form-control" placeholder="" ID="chartno" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="headerstyles">
+                                <h3 class="headertextstyles">Test Information</h3>
+                            </div>
+                            <div class="sectionpanel">
+                                <div class="row" style="margin: 0px;">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-1">
+                                                <div class="form-group">
+                                                    <label class="textstyles">Test Code</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <select id="testcode" class="example" Style="width:100%; height: 30px;">
+                                                    <option value="">-- Test Code --</option>
+                                                </select>
+                                                @*<input id="testcode" type="text" Style="width: 100%; height: 30px;" class="form-control" placeholder="Test Code..." />*@
+                                            </div>
+
+                                            <div class="col-md-1">
+                                                <div class="form-group">
+                                                    <label Style="color: #035bbf;">Test Name</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input id="testname" name="testName" type="text" disabled Style="width: 100%; height: 30px;" class="form-control" placeholder="Test Name..." />
+                                            </div>
+                                            <div class="col-md-1">
+                                                <a class="btn" style=" color:#035bbf; border: 2px solid #035bbf; background: transparent ;" value="Add" id="adddata"><i class="fa fa-plus"></i></a>
+                                            </div>
+                                        </div>
+
+                                        <hr />
+                                        <div class="row" style="margin: 0px;">
+                                            <div class="col-md-12">
+                                                <input id="preid" type="hidden" asp-for="PatientReqE.PreIdE" />
+                                                <table id="testsTable" class="table table-striped" style="width:100%;">
+
+                                                    <thead style="font-size: 10pt; background-image: linear-gradient(to right, #0372f2, #499ef5, #0372f2)">
+                                                        <tr>
+                                                            <th style="text-align: center;color:white; border-top-left-radius:5px;">Code</th>
+                                                            <th style="text-align: center;color:white">Test Name</th>
+                                                            <th style="text-align: center;color:white">Type</th>
+                                                            <th style="text-align: center;color:white">S Type</th>
+                                                            <th style="text-align: center;color:white; border-top-right-radius:5px;">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="temptablebody" style="font-size: 10pt;">
+
+
+
+                                                        @*@for (int row = 0; row < Model.PatientReqTestEs.Count; row++)
+                                                                {
+                                                                    <tr>
+                                                                        <td>
+                                                                            @Html.EditorFor(o => o.PatientReqTestEs[row].TgpsCode)
+                                                                        </td>
+                                                                        <td>
+                                                                            @Html.EditorFor(o => o.PatientReqTestEs[row].TgpsName)
+                                                                        </td>
+                                                                        <td>
+                                                                            @Html.EditorFor(o => o.PatientReqTestEs[row].TgpsType)
+                                                                        </td>
+                                                                        <td>
+                                                                            @Html.EditorFor(o => o.PatientReqTestEs[row].PrtType)
+                                                                        </td>
+                                                                        <td style="text-align:center;"><a class="deleteItem btn" style="padding: 0px;"><i class="fa fa-trash" style="color:  #0372f2" aria-hidden="true"></i></a></td>
+                                                                    </tr>
+
+                                                                }
+                                                            }*@
+                                                        @foreach (var t in Model.PatientReqTestEs)
+                                                        {
+                                                            <tr>
+
+                                                                <td>@t.TgpsCode</td>
+                                                                <td>@t.TgpsName</td>
+                                                                <td>@t.TgpsType</td>
+                                                                <td>@t.PrtType</td>
+
+                                                                <td style="text-align:center;"><a class="deleteItem btn" style="padding: 0px;"><i class="fa fa-trash" style="color:  #0372f2" aria-hidden="true"></i></a></td>
+                                                            </tr>
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-2 col-md-offset-10" style=" text-align: center;">
+                                                <a id="addtests" class="btn" style="color:  #0372f2; padding: 0px;  margin-top:5px"><i class="fa fa-save" style="font-size:x-large ;color:  #0372f2" aria-hidden="true">&nbsp;</i>Changes</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="headerstyles">
+                                <h3 class="headertextstyles">Laboratory Information</h3>
+                            </div>
+
+                            <div class="sectionpanel">
+                                <div class="row" style="margin-left: 0px;">
+                                    <div class="col-md-4">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label Style="color: #035bbf;">Code</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <input id="docCode" asp-for="RefDoctor.DocCode" type="text" Style="width: 100%; height: 30px;" class="form-control" placeholder="--Doctor Code--">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label Style="color: #035bbf;">Refer Doctor</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <select id="docName" asp-for="PatientReqE.PreDocId" asp-items="ViewBag.doctorss" class="example" Style="width:100%; height: 30px;">
+                                                    <option value="">--Doctor--</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+
+                        </div>
+                        <div class="col-md-2">
+                            <input id="barcodegenerator" type="button" data-toggle="modal" class="btn" data-target="#myModal" value="Generate Bar Code" style="background: #157ef3; color: #fff; margin:15px; float:right" />
+                        </div>
+                        <div class="col-md-2">
+                            <input type="submit" class="btn" value="Update Patient Info" style="background: #157ef3; color: #fff; margin:15px; float:right" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog modal-lg">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">Bar Code</div>
+                        <div class="modal-body">
+                            <div class="row" style="margin-left: 0px;">
+
+                                <div class="row" style="margin-left: 0px;">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="textstyles">Patient ACC#</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input asp-for="PatientReqE.PreAccNo" type="text" Style="width: 75%; height: 30px;" class="form-control" ID="acc" />
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-left: 0px;">
+
+
+                                    <div class="col-md-offset-3">
+                                        <img id="barcode" style="margin-left:20px;" />
+                                        <label id="emptyacc"></label>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" id="printimg">Print Barcode</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            //var d=  JsBarcode("#barcode", "1234", {
+            //      format: "pharmacode",
+            //      lineColor: "#0aa",
+            //      width: 4,
+            //      height: 40,
+            //      displayValue: false
+            //  });
+            // print
+            $('#printimg').click(function printData() {
+                var divToPrint = document.getElementById("barcode");
+                newWin = window.open("");
+                newWin.document.write(divToPrint.outerHTML);
+                newWin.print();
+                newWin.close();
+            });
+
+            $("#barcodegenerator").click(function () {
+                var accno = (document).getElementById("acc").value.toString();
+                if (accno != "") {
+                    JsBarcode("#barcode", accno);
+                    (document).getElementById("emptyacc").innerHTML = ""
+                }
+                else {
+                    (document).getElementById("emptyacc").innerHTML = "no Acc Found"
+                }
+            });
+
+            $("form").bind("keypress", function (e) {
+                if (e.keyCode == 13) {
+
+                    event.preventDefault();
+                }
+            });
+            $("#pzipcode").bind("keypress", function (e) {
+                if (e.keyCode == 13) {
+
+                    loadzipcodes();
+                }
+            });
+
+
+
+
+            $('.datepicker').datepicker({
+                format: 'mm/dd/yyyy',
+            });
+
+            // Temp Table Initialization
+            var table = $('#testsTable').DataTable({
+                "scrollX": true,
+                "scrollY": "300px",
+                "scrollCollapse": true,
+                "searching": false,
+                "paging": false,
+                "ordering": false,
+                "info": false,
+                "pageLength": false
+            });
+
+            //$('#temptablebody').children('tr').children('td').children('input').addClass("tablerowsstyle");
+            //// $('#temptablebody').children('tr').children('td').children('input').prop('disabled', true);
+            //$('#temptablebody').children('tr').children('td').children('input').prop('readonly', true);
+            //$('#pstate').change(loadcities);
+            $('#pzipcode').change(loadzipcodes);
+            $('#addtests').click(UpdateTests);
+            // Test name by Test Code
+            loadTestCodes()
+            $('#testcode').change(function () {
+
+                var dropdown = document.getElementById("testcode");
+                var value = dropdown.options[dropdown.selectedIndex].value;
+
+                fetch("https://localhost:44380/Home/PatientTests?id=" + value, {
+                    mode: 'no-cors',
+                    method: 'GET',
+                    headers: {
+                        "Access-Control-Allow-Origin": '*'
+                    }
+                })
+                    .then(response => response.json())
+                    .then(result => {
+                        if (result) {
+                            (document).getElementById('testname').value = result.testName
+                        }
+                        else
+                            (document).getElementById('testname').value = "Invalid Test Code"
+                    },
+                        (error) => {
+                            console.log(error)
+                        }
+                    )
+            });
+            // insurance name by insurance Code or Insurance Id
+            $('#inscode').change(function () {
+
+                var dropdown = document.getElementById("inscode");
+                var value = dropdown.value;
+                //  var value = dropdown.options[dropdown.selectedIndex].text;
+
+                fetch("https://localhost:44380/Home/Insurances?id=" + value, {
+                    mode: 'no-cors',
+                    method: 'GET',
+                    headers: {
+                        "Access-Control-Allow-Origin": '*'
+                    }
+                })
+                    .then(response => response.json())
+                    .then(result => {
+                        if (result) {
+                            (document).getElementById('insname').value = result.insName;
+                            //   (document).getElementById('insname').innerText = result.InsName
+                        }
+                        else
+                            (document).getElementById('insname').innerText = "Invalid Insurance Code"
+                    },
+                        (error) => {
+                            console.log(error)
+                        }
+                    )
+            });
+            // Doctor
+            $('#docCode').change(function () {
+                var dcode = document.getElementById("docCode");
+                var value = dcode.value;
+                selectDocOnCode(value)
+            });
+            //$('#docName').change(function () {
+            //    //var dropdown = document.getElementById("docName");
+            //    //var value = dropdown.options[dropdown.selectedIndex].val;
+            //    //selectDocOnCode(value)
+            //    $('#docCode').value = ""
+            //});
+            function selectDocOnCode(value) {
+
+                //var dcode = document.getElementById("docCode");
+                //var value = dcode.value;
+                //  var value = dropdown.options[dropdown.selectedIndex].text;
+
+                fetch("https://localhost:44380/Home/DoctorInfo?id=" + value, {
+                    mode: 'no-cors',
+                    method: 'GET',
+                    headers: {
+                        "Access-Control-Allow-Origin": '*'
+                    }
+                })
+                    .then(response => response.json())
+                    .then(result => {
+                        if (result) {
+                            console.log(result)
+                            //   $('#docCode').value = result.doccode
+                            $('#docName').val(result.docId).change()
+                            //  (document).getElementById('docName').value = result.docLastName;
+                            //   (document).getElementById('insname').innerText = result.InsName
+                        } else {
+                            $('#docName').val(1).change()
+
+                        }
+
+                    },
+                        (error) => {
+                            console.log(error)
+                        }
+                    )
+            }
+            // Delete from Temp Table
+            $(document).on('click', 'a.deleteItem', function (e) {
+                e.preventDefault();
+                $(this).parents('tr').css("background-color", "#ffffff").fadeOut(400, function () {
+                    $(this).remove();
+                });
+
+            })
+
+
+            $('#adddata').click(function () {
+                var dropdown = document.getElementById("testcode");
+                var value = dropdown.options[dropdown.selectedIndex].innerHTML;
+                fetch("https://localhost:44380/Home/patientTests?id=" + value, {
+                    mode: 'no-cors',
+                    method: 'GET',
+                    headers: {
+                        "Access-Control-Allow-Origin": '*'
+                    }
+                })
+                    .then(response => response.json())
+                    .then(result => {
+                        // var tests = new Array();
+                        var isunique = false;
+                        var Rows = document.getElementById('temptablebody').getElementsByTagName('tr');
+                        console.log((document).getElementById('preid').value);
+                        var data = result;
+
+                        for (var i = 0; i < Rows.length; i++) {
+                            if (data.testCode == Rows[i].cells[0].innerHTML) {
+                                isunique = true;
+                            } else {
+                                isunique = false;
+
+                            }
+                        }
+                        if (!isunique) {
+                            var _html = '';
+                            _html += '<tr>';
+                            _html += '<td>' + data.testCode + '</td>';
+                            _html += '<td>' + data.testName + '</td>';
+                            _html += '<td>' + "I" + '</td>';
+                            _html += '<td>' + "C" + '</td>';
+                            _html += '<td style = "text-align: center;"><a class="deleteItem btn" style="padding: 0px; "><i class="fa fa-trash" style="color: #0372f2" aria-hidden="true"></i></a></td>';
+                            _html += '</tr>'
+                            $('#temptablebody').append(_html);
+                        } else {
+                            alert("Test Already Exist");
+                        }
+                    },
+
+                        (error) => {
+                            console.log(error)
+                        }
+                    )
+
+            });
+            //Post Table Data
+            //$("body").on("click", "#savePatientData", function () {
+            //    //Loop through the Table rows and build a JSON array.
+            //    var testArray = new Array();
+            //    $("#testsTable tbody tr").each(function () {
+            //        var row = $(this);
+            //        var testData = {};
+            //        testData.TgpsCode = row.find("td").eq(0).html();
+            //        testData.TgpsName = row.find("td").eq(1).html();
+            //        testData.TgpsType = row.find("td").eq(2).html();
+            //        testData.PrtType = row.find("td").eq(3).html();
+            //        testArray.push(testData);
+            //        console.log(testArray);
+            //    });
+            //    //Send the JSON array to Controller using AJAX.
+            //    $.ajax({
+            //        type: "POST",
+            //        url: "/Home/InsertCustomers",
+            //        data: JSON.stringify(customers),
+            //        contentType: "application/json; charset=utf-8",
+            //        dataType: "json",
+            //        success: function (r) {
+            //            alert(r + " record(s) inserted.");
+            //        }
+            //    });
+            //});
+
+            function UpdateTests() {
+                var preid = (document).getElementById('preid').value;
+                var temp;
+                var tests = new Array();
+                var text = $("#temptablebody  tr").find("td").eq(0).html();
+                $("#temptablebody  tr").each(function () {
+                    var row = $(this);
+                    var testData = {
+                        preId: preid,
+                        tgpsCode: row.find("td").eq(0).html(),
+                        tgpsName: row.find("td").eq(1).html(),
+                        tgpsType: "I",
+                        prtType: "C"
+                    }
+                    tests.push(testData);
+                });
+                if (tests.length < 1) {
+                    tests.push({
+                        preId: preid,
+                        tgpsCode: null,
+                        tgpsName: null,
+                        tgpsType: null,
+                        prtType: null
+                    });
+                }
+
+                //var formData = new FormData();
+                //formData.append("json", );
+                //    formData.append("json", data);
+                $.ajax({
+                    type: 'POST',
+                    contentType: 'application/json; charset=utf-8',
+                    url: "https://localhost:44380/Home/SaveTests",
+                    data: JSON.stringify(tests),
+                    success: () => { console.log("submited") },
+                    error: () => { console.log("failed") },
+                });
+                //  var newTest = "<td  > <a class='deleteItem btn' style='padding: 0px;'><i class='fa fa-trash' style='color:  #0372f2' aria-hidden='true'></i></a></td>";
+                //   row.append(newTest);
+            }
+            //function Removetest(code) {
+            //    var preid = (document).getElementById('preid').value;
+
+
+            //    var testData = {
+            //        preId: preid,
+            //        tgpsCode: code,
+            //    }
+
+            //    $.ajax({
+            //        type: 'POST',
+            //        contentType: 'application/json; charset=utf-8',
+            //        url: "https://localhost:44380/Home/RemoveTest",
+            //        data: JSON.stringify(testData),
+            //        success: () => { console.log("submited") },
+            //        error: () => { console.log("failed") },
+            //    });
+            //    //  var newTest = "<td  > <a class='deleteItem btn' style='padding: 0px;'><i class='fa fa-trash' style='color:  #0372f2' aria-hidden='true'></i></a></td>";
+            //    //   row.append(newTest);
+            //}
+            //Load Cities DropDown on State Change
+            function loadTestCodes() {
+
+                var testcodedropdown = (document).getElementById('testcode');
+
+                fetch("https://localhost:44380/Home/Tests", {
+                    mode: 'no-cors',
+                    method: 'GET',
+                    headers: {
+                        "Access-Control-Allow-Origin": '*'
+                    }
+                })
+                    .then(response => response.json())
+                    .then(result => {
+                        if (result) {
+
+                            for (i = 0; i < result.length; i++) {
+                                var option = document.createElement("option");
+                                option.value = result[i].testId;
+                                option.text = result[i].testCode;
+
+                                testcodedropdown.appendChild(option);
+                            }
+                        }
+                    },
+                        (error) => {
+                            console.log(error)
+                        })
+            }
+            // load city state and zip
+            //function loadzipcodes() {
+
+            //    var value = (document).getElementById('pzipcode').value;
+            //    if (value != "") {
+            //        fetch("https://localhost:44380/Home/Zipcodes?id=" + value, {
+            //            mode: 'no-cors',
+            //            method: 'GET',
+            //            headers: {
+            //                "Access-Control-Allow-Origin": '*'
+            //            }
+            //        })
+            //            .then(response => response.json())
+            //            .then(result => {
+            //                if (result) {
+            //                    (document).getElementById('pcity').value = result.cityName;
+            //                    (document).getElementById('pstate').value = result.stFullName
+            //                }
+            //            },
+            //                (error) => {
+            //                    console.log(error)
+            //                })
+            //    }
+            //    else {
+            //        clearzipdropdown();
+            //    }
+            //}
+            //  Load Zipcode DropDown on City Change
+            function loadzipcodes() {
+
+                var pzipcode = (document).getElementById('pzipcode');
+
+                fetch("https://localhost:44380/Home/Zipcodes?id=" + pzipcode.value, {
+                    mode: 'no-cors',
+                    method: 'GET',
+                    headers: {
+                        "Access-Control-Allow-Origin": '*'
+                    }
+                })
+                    .then(response => response.json())
+                    .then(result => {
+                        if (result) {
+
+                            (document).getElementById('pstate').value = result.stFullName;
+                            (document).getElementById('pcity').value = result.cityName;
+                        }
+                        else {
+
+                            (document).getElementById('pstate').value = "No State Available";
+                            (document).getElementById('pcity').value = "No City Available";
+                        }
+                    },
+                        (error) => {
+                            console.log(error)
+                        })
+
+            }
+            //function clearzipdropdown() {
+            //    var zipcodesdropdown = (document).getElementById('pzipcode');
+            //    var dropvalues = zipcodesdropdown.getElementsByTagName('option');
+            //    if (dropvalues.length > 1) {
+
+            //        for (var i = 0; i < dropvalues.length - 1; i++) {
+            //            dropvalues[i + 1].remove();
+
+            //        }
+            //    }
+            //}
+            //function clearcitydropdown() {
+
+            //    var citiesdropdown = (document).getElementById('pcity');
+            //    var dropvalues = citiesdropdown.getElementsByTagName('option');
+            //    if (dropvalues.length > 1) {
+
+            //        for (i = 0; i < dropvalues.length - 1; i++) {
+            //            dropvalues[i + 1].remove();
+            //        }
+            //    }
+            //}
+
+            //function clearTable() {
+            //    var Rows = document.getElementById("").getElementsByTagName('tr');
+            //    for (var i = 0; i < Rows.length; i++)
+            //    {
+            //        document.getElementById("")
+            //    }
+            //}
+
+        });
+    </script>
+}

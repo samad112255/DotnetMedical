@@ -1,0 +1,207 @@
+﻿@model LMSUS.Models.Sspagination
+
+<style>
+    .theadstyles {
+        color: white;
+        text-decoration: none
+    }
+
+        .theadstyles :hover {
+            color: white;
+            text-decoration: none;
+        }
+
+    .sectionpanel {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        padding-left: 30px;
+        padding-right: 30px;
+        border: 2px solid #157ef3;
+        border-radius: 0px 0px 10px 10px;
+    }
+
+    .tablerowsstyle {
+        background: transparent;
+        border: none;
+    }
+
+    .textstyles {
+        color: #035bbf;
+    }
+
+    .headertextstyles {
+        color: white;
+        padding: 1%;
+    }
+
+    .headerstyles {
+        background-image: linear-gradient(to right, #0372f2, #499ef5, #0372f2);
+        color: white;
+        border-radius: 10px 10px 0px 0px;
+        height: 50px;
+    }
+</style>
+
+<div class="jumbotron" style="margin-top: 3.7%;    margin-bottom: 0%; padding-bottom: 0px; padding-top: 0px; margin-left: 3%; margin-right: 3%; background-color: #fff; border: #cccccc; border-style: solid; border-width: thin; padding-right: 25px; padding-left: 25px;">
+
+    <div class="container-fluid " style="padding-top: 10px;">
+
+        <div class="row" style="margin:0px">
+            <div class="headerstyles">
+                <h3 class="headertextstyles">Patients Data</h3>
+            </div>
+            <div class="sectionpanel">
+                @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+                {
+                    <div class="row">
+                        <div class="col-md-6">
+                            @*<div class="col-md-1"><label>From Date :</label></div>
+                                <div class="col-md-3">
+                                    <input Style="width: 100%; height: 30px; height: 30px; height: 30px;" class="datepicker form-control" />
+                                </div>
+                                <div class="col-md-1"><label>To Date :</label></div>*@
+                            @*<div class="col-md-3">
+                                    From: @Html.TextBox("Date", ViewBag.CurrentDate as string, null, new { @class = "datepicker form-control", Style = "width: 100%;  height: 30px;" })
+                                    <input type="submit" class="form-control" value="Date" />
+                                </div>*@
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>From Date</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.TextBox("fromdate", ViewBag.fromdate as DateTime?, null, new { @class = "datepicker form-control", Style = "width: 100%; height: 30px;" })
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>To Date</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        @Html.TextBox("todate", ViewBag.todate as DateTime?, null, new { @class = "datepicker form-control", Style = "width: 100%; height: 30px;" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @*<div class="col-md-1"><label>From Date :</label></div>
+                                <div class="col-md-3">
+                                    <input Style="width: 100%; height: 30px; height: 30px; height: 30px;" class="datepicker form-control" />
+                                </div>
+                                <div class="col-md-1"><label>To Date :</label></div>*@
+                            @*<div class="col-md-3">
+                                    From: @Html.TextBox("Date", ViewBag.CurrentDate as string, null, new { @class = "datepicker form-control", Style = "width: 100%;  height: 30px;" })
+                                    <input type="submit" class="form-control" value="Date" />
+                                </div>*@
+                            <div class="row">
+                                <div class="col-md-7">
+                                    @Html.TextBox("Search", ViewBag.searching as string, null, new { @class = " form-control", Style = "width: 100%; height: 30px;" })
+                                    @*<input Style="width: 75%; height: 30px; height: 30px; height: 30px;" class="form-control" ID="acc" />*@
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <input type="submit" class="form-control" value="Search" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                }
+                <table id="tableexample" class="table table-striped display nowrap" style="width:100%;">
+                    <thead style="font-size: 10pt; background-image: linear-gradient(to right, #0372f2, #499ef5, #0372f2)">
+                        <tr>
+                            <th style="text-align: center;color:white; border-top-left-radius:5px;">@Html.ActionLink("Accession #", "Index", new { sortOrder = ViewBag.accnoSortParm, currentFilter = ViewBag.CurrentFilter }, new { @class = "theadstyles", style = "text-decoration:none; color:#fff;" })</th>
+                            <th style="text-align: center;color:white">@Html.ActionLink("Req #", "Index", new { sortOrder = ViewBag.reqnoSortParm, currentFilter = ViewBag.CurrentFilter }, new { @class = "theadstyles", style = "text-decoration:none; color:#fff;" })</th>
+                            <th style="text-align: center;color:white">@Html.ActionLink("SSN #", "Index", new { sortOrder = ViewBag.ssnSortParm, currentFilter = ViewBag.CurrentFilter }, new { @class = "theadstyles", style = "text-decoration:none; color:#fff;" })</th>
+                            <th style="text-align: center;color:white">@Html.ActionLink("DoB", "Index", new { sortOrder = ViewBag.dobSortParm, currentFilter = ViewBag.CurrentFilter }, new { @class = "theadstyles", style = "text-decoration:none; color:#fff;" })</th>
+                            <th style="text-align: center;color:white"> @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.LNameSortParm, currentFilter = ViewBag.CurrentFilter }, new { @class = "theadstyles", style = "text-decoration:none; color:#fff;" })</th>
+                            <th style="text-align: center;color:white"> @Html.ActionLink("First Name", "Index", new { sortOrder = ViewBag.FNameSortParm, currentFilter = ViewBag.CurrentFilter }, new { @class = "theadstyles", style = "text-decoration:none; color:#fff;" })</th>
+                            <th style="text-align: center;color:white"> @Html.ActionLink("Doctor", "Index", new { sortOrder = ViewBag.DocNameSortParam, currentFilter = ViewBag.CurrentFilter }, new { @class = "theadstyles", style = "text-decoration:none; color:#fff;" })</th>
+                            <th style="text-align: center;color:white"> @Html.ActionLink("Insurance", "Index", new { sortOrder = ViewBag.InsSortParam, currentFilter = ViewBag.CurrentFilter }, new { @class = "theadstyles", style = "text-decoration:none; color:#fff;" })</th>
+                            <th style="text-align: center;color:white"> @Html.ActionLink("Acc Date", "Index", new { sortOrder = ViewBag.AccDateSortParm, currentFilter = ViewBag.CurrentFilter }, new { @class = "theadstyles", style = "text-decoration:none; color:#fff;" })</th>
+                            <th style="text-align: center;color:white">Coll Date</th>
+                            <th style="text-align: center;color:white; border-top-right-radius:5px;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody style="font-size: 10pt;">
+                        @{
+                            @foreach (var p in Model.GridPatients)
+                            {
+                                <tr>
+                                    <td>@p.PreAccNo</td>
+                                    <td>@p.PreReqNo</td>
+                                    <td>@p.PaSsn</td>
+                                    <td>@p.DateOfBirth</td>
+                                    <td>@p.PaLastName</td>
+                                    <td>@p.PaFirstName</td>
+                                    <td>@p.DocFirstName @p.DocLastName</td>
+                                    <td>@p.InsCode</td>
+                                    <td>@p.PreAccDate</td>
+                                    <td>@p.PreDrawnDate</td>
+                                    <td><a class="btn" asp-action="Edit" asp-route-id="@p.PaIdE" style=" color:#035bbf; background: transparent ;"><i class="far fa-edit"></i></a></td>
+                                    @*asp-route-id="@p.PaIdE"   asp-action="Edit"*@
+                                </tr>
+                            }
+                        }
+
+                    </tbody>
+
+                </table>
+                <!-- pager -->
+                @if (Model.Pager.EndPage > 1)
+                {
+                    <ul class="pagination">
+                        @if (Model.Pager.CurrentPage > 1)
+                        {
+                            <li>
+                                <a href="~/Home/Index">First</a>
+                            </li>
+                            <li>
+                                <a href="~/Home/Index?page=@(Model.Pager.CurrentPage - 1)">Previous</a>
+                            </li>
+                        }
+                        @{
+                            for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
+                            {
+                                <li class="@(page == Model.Pager.CurrentPage ? "active" : "")">
+                                    <a href="~/Home/Index?page=@(page)">@(page)</a>
+                                </li>
+                            }
+                        }
+
+                        @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
+                        {
+                            <li>
+                                <a href="~/Home/Index?page=@(Model.Pager.CurrentPage + 1)">Next</a>
+                            </li>
+                            <li>
+                                <a href="~/Home/Index?page=@(Model.Pager.TotalPages)">Last</a>
+                            </li>
+                        }
+                    </ul>
+                }
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var selected = [];
+            $('#tableexample').DataTable({
+                "scrollX": true,
+                "scrollY": "450px",
+                "scrollCollapse": true,
+                "searching": false,
+                "pageLength": false,
+                "ordering": false,
+                "paging": false,
+                "info": false
+            });
+        });
+    </script>
+}
